@@ -5,7 +5,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class WorldRenderer {
 
-    public static int worldRenderDistance = 16;
+    public static int worldRenderDistance = 4;
     public static int spriteSizeOffset = 32;
 
     private ChunkGenerator worldChunkGenerator;
@@ -37,10 +37,10 @@ public class WorldRenderer {
         this.windowWidth = width;
         this.windowHeight = height;
 
-        cameraXLocation = 350;
-        cameraYLocation = 350;
-        lastReleasedPositionX = 350;
-        lastReleasedPositionY = 350;
+        cameraXLocation = 500;
+        cameraYLocation = 500;
+        lastReleasedPositionX = cameraXLocation;
+        lastReleasedPositionY = cameraYLocation;
 
         setupInputCallbacks();
     }
@@ -73,19 +73,15 @@ public class WorldRenderer {
         });
 
         glfwSetScrollCallback(window, (window, xoffset, yoffset) -> {
-            double[] xpos = new double[1];
-            double[] ypos = new double[1];
-            glfwGetCursorPos(window, xpos, ypos);
-
-            double worldXBeforeZoom = (xpos[0] - 256 - cameraXLocation) / zoomLevel;
-            double worldYBeforeZoom = (ypos[0] - 256 - cameraYLocation) / zoomLevel;
+            double worldXBeforeZoom = (0 - cameraXLocation) / zoomLevel;
+            double worldYBeforeZoom = (0 - cameraYLocation) / zoomLevel;
 
             double oldZoom = zoomLevel;
             zoomLevel *= Math.pow(1.1, -yoffset * ZOOM_FACTOR);
             zoomLevel = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, zoomLevel));
 
-            double worldXAfterZoom = (xpos[0] - 256 - cameraXLocation) / zoomLevel;
-            double worldYAfterZoom = (ypos[0] - 256 - cameraYLocation) / zoomLevel;
+            double worldXAfterZoom = (0 - cameraXLocation) / zoomLevel;
+            double worldYAfterZoom = (0 - cameraYLocation) / zoomLevel;
 
             cameraXLocation += (worldXAfterZoom - worldXBeforeZoom) * zoomLevel;
             cameraYLocation += (worldYAfterZoom - worldYBeforeZoom) * zoomLevel;
@@ -342,8 +338,8 @@ public class WorldRenderer {
     }
 
     private void renderChunk(int posX, int posY) {
-        int offsetX = (int) (256 + cameraXLocation + posX * spriteSizeOffset * ChunkGenerator.CHUNK_SIZE * zoomLevel);
-        int offsetY = (int) (256 + cameraYLocation + posY * spriteSizeOffset * ChunkGenerator.CHUNK_SIZE * zoomLevel);
+        int offsetX = (int) (420+cameraXLocation + posX * spriteSizeOffset * ChunkGenerator.CHUNK_SIZE * zoomLevel);
+        int offsetY = (int) (420+cameraYLocation + posY * spriteSizeOffset * ChunkGenerator.CHUNK_SIZE * zoomLevel);
 
         Chunk chunk = worldChunkGenerator.grabChunk(posX, posY);
         int tileSize = (int) (spriteSizeOffset * zoomLevel);
