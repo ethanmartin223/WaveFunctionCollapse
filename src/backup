@@ -1,0 +1,113 @@
+#ID	Meaning
+#0	Empty / Air
+#1	Full block (solid)
+#2	Slope north (bottom-left → top-right)
+#3	Slope south (top-left → bottom-right)
+#4	Slope east (top-left → bottom-right)
+#5	Slope west (bottom-left → top-right)
+#6	Half block (bottom)
+#7	Half block (top)
+#8	Half block (left)
+#9	Half block (right)
+#10	Convex corner (bottom-left)
+#11	Convex corner (bottom-right)
+#12	Convex corner (top-right)
+#13	Convex corner (top-left)
+#14	Corner triangle (top-left)
+#15	Corner triangle (top-right)
+#16	Corner triangle (bottom-right)
+#17	Corner triangle (bottom-left)
+
+
+0 0 0 0 0
+0 16 6 17 0
+0 9 1 8 0
+---
+
+0 9 1 8 0
+0 15 7 14 0
+0 0 0 0 0
+---
+
+1 1 1
+15 10 1
+0 9 1
+---
+
+0 9 1
+16 13 1
+1 1 1
+---
+
+1 1 1
+15 10 1
+0 9 1
+---
+
+0 9 1
+16 13 1
+1 1 1
+---
+
+1 1 1
+1 11 14
+1 8 0
+1 8 0
+1 12 17
+1 1 1
+---
+
+0 0 0 0 0 0
+0 0 2 3 0 0
+0 2 1 1 3 0
+---
+
+0 0 0 0
+2 1 1 3
+1 1 1 1
+---
+
+1 1 1 1
+4 1 1 5
+0 0 0 0
+---
+
+0 4 1 1 5 0
+0 0 4 5 0 0
+0 0 0 0 0 0
+---
+
+0 0 0 0 0 0
+0 0 2 3 0 0
+1 1 1 1 1 1
+---
+
+0 0 0 0 0 0 0
+0 0 2 1 3 0 0
+1 1 1 1 1 1 1
+---
+
+1 1 1 1 1 1
+0 0 4 5 0 0
+0 0 0 0 0 0
+---
+
+1 1 1 1 1 1 1
+0 0 4 1 5 0 0
+0 0 0 0 0 0 0
+---
+
+1 1 1 1 1 1 1
+0 0 4 1 5 0 0
+0 0 0 0 0 0 0
+---
+
+0 0 0
+0 2 1
+1 1 1
+---
+
+0 0 0
+1 3 0
+1 1 1
+---
